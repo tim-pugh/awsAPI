@@ -100,7 +100,7 @@ To simplify troubleshooting, SAM CLI has a command called `sam logs`. `sam logs`
 `NOTE`: This command works for all AWS Lambda functions; not just the ones you deploy using SAM.
 
 ```bash
-awsAPI$ sam logs -n HelloWorldFunction --stack-name awsAPI --tail
+sam logs -n HelloWorldFunction --stack-name awsAPI --tail
 ```
 
 You can find more information and examples about filtering Lambda function logs in the [SAM CLI Documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html).
@@ -110,12 +110,12 @@ You can find more information and examples about filtering Lambda function logs 
 Tests are defined in the `tests` folder in this project. Use PIP to install the test dependencies and run tests.
 
 ```bash
-awsAPI$ pip install -r tests/requirements.txt --user
+pip install -r tests/requirements.txt --user
 # unit test
-awsAPI$ python -m pytest tests/unit -v
+python -m pytest tests/unit -v
 # integration test, requiring deploying the stack first.
 # Create the env variable AWS_SAM_STACK_NAME with the name of the stack we are testing
-awsAPI$ AWS_SAM_STACK_NAME=<stack-name> python -m pytest tests/integration -v
+AWS_SAM_STACK_NAME=<stack-name> python -m pytest tests/integration -v
 ```
 
 ## Cleanup
