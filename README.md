@@ -127,15 +127,15 @@ sam delete <stack name>
 
 ## Resources
 
-See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
+* See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
 
-Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
+* Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
 
-Viewing the following video is also a good primer on using the SAM CLI and some of the commands found above - [AWS re:Invent 2020: I didn't know AWS SAM could do that!](https://www.youtube.com/watch?v=wPk9OEmxJhQ)
+* Viewing the following video is also a good primer on using the SAM CLI and some of the commands found above - [AWS re:Invent 2020: I didn't know AWS SAM could do that!](https://www.youtube.com/watch?v=wPk9OEmxJhQ)
 
-For using the AWS Toolkit with VSCode to debug your API resources, you can view the following link:
+* For using the AWS Toolkit with VSCode to debug your API resources, you can view the following link:
 
-* [Running and debugging Lambda functions directly from code](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/serverless-apps-run-debug-no-template.html)
-* [Running and debugging local Amazon API Gateway resources](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/debug-apigateway.html)
+  * [Running and debugging Lambda functions directly from code](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/serverless-apps-run-debug-no-template.html)
+  * [Running and debugging local Amazon API Gateway resources](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/debug-apigateway.html)
 
 SPDX-License-Identifier: GNU GENERAL PUBLIC LICENSE v3
