@@ -135,7 +135,7 @@ Viewing the following video is also a good primer on using the SAM CLI and some 
 
 For using the AWS Toolkit with VSCode to debug your API resources, you can view the following link:
 
-*[Running and debugging Lambda functions directly from code](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/serverless-apps-run-debug-no-template.html)
-*[Running and debugging local Amazon API Gateway resources](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/debug-apigateway.html)
+* [Running and debugging Lambda functions directly from code](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/serverless-apps-run-debug-no-template.html)
+* [Running and debugging local Amazon API Gateway resources](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/debug-apigateway.html)
 
 SPDX-License-Identifier: GNU GENERAL PUBLIC LICENSE v3
