@@ -33,7 +33,6 @@ To use the SAM CLI and deploy this application, you need the following tools:
 * Python 3.8 - [Install Python 3.8](https://www.python.org/downloads/)
 * SAM CLI - [Install the SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
 * Docker - [Install Docker community edition](https://hub.docker.com/search/?type=edition&offering=community)
-* [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [install the AWS Serverless Application Model CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html) on your local machine.
 * [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ## Build and Deployment Instructions
@@ -60,7 +59,7 @@ You can find your API Gateway Endpoint URL in the output values displayed after 
 Build your application with the `sam build --use-container` command.
 
 ```bash
-awsAPI$ sam build --use-container
+sam build --use-container
 ```
 
 The SAM CLI installs dependencies defined in `hello_world/requirements.txt`, creates a deployment package, and saves it in the `.aws-sam/build` folder.
@@ -70,14 +69,14 @@ Test a single function by invoking it directly with a test event. An event is a 
 Run functions locally and invoke them with the `sam local invoke` command.
 
 ```bash
-awsAPI$ sam local invoke HelloWorldFunction --event events/event.json
+sam local invoke HelloWorldFunction --event events/event.json
 ```
 
 The SAM CLI can also emulate your application's API. Use the `sam local start-api` to run the API locally on port 3000.
 
 ```bash
-awsAPI$ sam local start-api
-awsAPI$ curl http://localhost:3000/
+sam local start-api
+curl http://localhost:3000/
 ```
 
 The SAM CLI reads the application template to determine the API's routes and the functions that they invoke. The `Events` property on each function's definition includes the route and method for each path.
@@ -133,5 +132,10 @@ See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-applica
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
 
 Viewing the following video is also a good primer on using the SAM CLI and some of the commands found above - [AWS re:Invent 2020: I didn't know AWS SAM could do that!](https://www.youtube.com/watch?v=wPk9OEmxJhQ)
+
+For using the AWS Toolkit with VSCode to debug your API resources, you can view the following link:
+
+*[Running and debugging Lambda functions directly from code](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/serverless-apps-run-debug-no-template.html)
+*[Running and debugging local Amazon API Gateway resources](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/debug-apigateway.html)
 
 SPDX-License-Identifier: GNU GENERAL PUBLIC LICENSE v3
