@@ -7,6 +7,7 @@ Important: this application uses various AWS services and there are costs associ
 ## Requirements
 
 * AWS CLI already configured with Administrator permission
+* Python 3.8
 
 ## Deployment Instructions
 
