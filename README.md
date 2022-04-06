@@ -1,5 +1,8 @@
 # AWS API
 
+![serverless](https://user-images.githubusercontent.com/22535268/162035528-39c64b6f-97f1-4652-8d2b-a580c4522942.png)
+
+
 This repo contains a SAM application showing how to integrate using infrastructure-as-code (IaC). These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code. You can use this to help develop your own project quickly.
 
 This specific application is intended to show an application which allows a mobile device to write a single devices current, allow end users to get all devices current locations, and allow end users to get a single devices location history. The information information is stored in an Amazon Aurora RDS database with a read replica and standby replica, and uses VPC endpointss to allow communication to the Secrets Manager, Systems Manager Parameter Store, and CloudWatch services. We will also be using the KMS key for encryption and decryption using a customer managed key. This specific solution uses AWS Lambda to allow developers to focus on business logic without so much infrastructure managment (scaling for example).
