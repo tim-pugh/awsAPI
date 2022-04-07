@@ -1,0 +1,15 @@
+Links
+
+AWS Security center - https://aws.amazon.com/security/
+
+Security of RDS - https://aws.amazon.com/blogs/database/applying-best-practices-for-securing-sensitive-data-in-amazon-rds/
+
+Vulnerability Detection - https://aws.amazon.com/blogs/security/using-aws-security-services-to-protect-against-detect-and-respond-to-the-log4j-vulnerability/
+
+Database Migration prescriptive pattern - https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/migrate-an-on-premises-mysql-database-to-aurora-mysql.html
+
+
+Database backups strategy - https://aws.amazon.com/blogs/storage/point-in-time-recovery-and-continuous-backup-for-amazon-rds-with-aws-backup/
+
+
+Cross region failover strategy - https://aws.amazon.com/blogs/database/cost-effective-disaster-recovery-for-amazon-aurora-databases-using-aws-backup/
