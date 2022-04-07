@@ -1,6 +1,7 @@
 # AWS API
 
-![serverless](https://user-images.githubusercontent.com/22535268/162035528-39c64b6f-97f1-4652-8d2b-a580c4522942.png)
+![serverless](https://user-images.githubusercontent.com/22535268/162327709-7688ba9d-a86b-4a87-9563-7aa41d2cc1ff.png)
+
 
 
 This repo contains a SAM application showing how to integrate using infrastructure-as-code (IaC). These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code. You can use this to help develop your own project quickly.
