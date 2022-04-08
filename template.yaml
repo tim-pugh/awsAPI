@@ -11,31 +11,84 @@ Globals:
     Timeout: 3
 
 Resources:
-  HelloWorldFunction:
+  writeSingleDeviceLocationFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: hello_world/
+      CodeUri: writeSingleDeviceLocationFunction/
       Handler: app.lambda_handler
-      Runtime: python3.9
+      Runtime: python3.8
       Architectures:
         - x86_64
       Events:
-        HelloWorld:
+        writeSingleDeviceLocation:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /hello
+            Path: /writeSingleDeviceLocationFunction
             Method: get
-
+  getAllDeviceCurrentLocationFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: getAllDeviceCurrentLocationFunction/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Architectures:
+        - x86_64
+      Events:
+        getAllDeviceCurrentLocation:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /getAllDeviceCurrentLocationFunction
+            Method: get
+  getSingleDeviceLocationHistoryFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: getSingleDeviceLocationHistoryFunction/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Architectures:
+        - x86_64
+      Events:
+        getSingleDeviceLocationHistory:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /getSingleDeviceLocationHistoryFunction
+            Method: get
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  HelloWorldApi:
-    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
-  HelloWorldFunction:
-    Description: "Hello World Lambda Function ARN"
-    Value: !GetAtt HelloWorldFunction.Arn
-  HelloWorldFunctionIamRole:
-    Description: "Implicit IAM Role created for Hello World function"
-    Value: !GetAtt HelloWorldFunctionRole.Arn
+  writeSingleDeviceLocationFunctionApi:
+    Description: "API Gateway endpoint URL for Prod stage for writeSingleDeviceLocationFunction"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/writeSingleDeviceLocationFunction/"
+  
+  writeSingleDeviceLocationFunction:
+    Description: "writeSingleDeviceLocationFunction ARN"
+    Value: !GetAtt writeSingleDeviceLocationFunction.Arn
+  
+  writeSingleDeviceLocationFunctionIamRole:
+    Description: "Implicit IAM Role created for writeSingleDeviceLocationFunction"
+    Value: !GetAtt writeSingleDeviceLocationFunctionRole.Arn
+
+  getAllDeviceCurrentLocationFunctionApi:
+    Description: "API Gateway endpoint URL for Prod stage for getAllDeviceCurrentLocationFunction"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getAllDeviceCurrentLocationFunction/"
+  
+  getAllDeviceCurrentLocationFunction:
+    Description: "getAllDeviceCurrentLocationFunction ARN"
+    Value: !GetAtt getAllDeviceCurrentLocationFunction.Arn
+  
+  getAllDeviceCurrentLocationFunctionIamRole:
+    Description: "Implicit IAM Role created for getAllDeviceCurrentLocationFunction"
+    Value: !GetAtt getAllDeviceCurrentLocationFunctionRole.Arn
+
+  getSingleDeviceLocationHistoryFunctionApi:
+    Description: "API Gateway endpoint URL for Prod stage for getSingleDeviceLocationHistoryFunction"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getSingleDeviceLocationHistoryFunction/"
+  
+  getSingleDeviceLocationHistoryFunction:
+    Description: "getSingleDeviceLocationHistoryFunction ARN"
+    Value: !GetAtt getSingleDeviceLocationHistoryFunction.Arn
+  
+  getSingleDeviceLocationHistoryFunctionIamRole:
+    Description: "Implicit IAM Role created for getSingleDeviceLocationHistoryFunction"
+    Value: !GetAtt getSingleDeviceLocationHistoryFunctionRole.Arn
