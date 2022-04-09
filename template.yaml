@@ -11,6 +11,27 @@ Globals:
     Timeout: 3
 
 Resources:
+  myAPI:
+    Type: AWS::Serverless::Api
+    DependsOn: writeSingleDeviceLocationFunction
+    Properties:
+      StageName: Prod
+      DefinitionBody:
+        swagger: 2.0
+        info:
+          version: "1.0"
+          title: 'test'
+        paths:
+          /writeSingleDeviceLocationFunction:
+            post:
+              x-amazon-apigateway-integration:
+                type: AWS
+                requestParameters:
+                  integration.request.header.X-Amz-Invocation-Type: '''Event'''
+                httpMethod: "POST"
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${writeSingleDeviceLocationFunction.Arn}/invocations
+
   writeSingleDeviceLocationFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -24,7 +45,9 @@ Resources:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /writeSingleDeviceLocationFunction
-            Method: get
+            Method: post
+            RestApiId:
+              Ref: myAPI
   getAllDeviceCurrentLocationFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -39,6 +62,8 @@ Resources:
           Properties:
             Path: /getAllDeviceCurrentLocationFunction
             Method: get
+            RestApiId:
+              Ref: myAPI
   getSingleDeviceLocationHistoryFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -53,13 +78,15 @@ Resources:
           Properties:
             Path: /getSingleDeviceLocationHistoryFunction
             Method: get
+            RestApiId:
+              Ref: myAPI
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   writeSingleDeviceLocationFunctionApi:
     Description: "API Gateway endpoint URL for Prod stage for writeSingleDeviceLocationFunction"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/writeSingleDeviceLocationFunction/"
+    Value: !Sub "https://${myAPI}.execute-api.${AWS::Region}.amazonaws.com/Prod/writeSingleDeviceLocationFunction/"
   
   writeSingleDeviceLocationFunction:
     Description: "writeSingleDeviceLocationFunction ARN"
@@ -71,7 +98,7 @@ Outputs:
 
   getAllDeviceCurrentLocationFunctionApi:
     Description: "API Gateway endpoint URL for Prod stage for getAllDeviceCurrentLocationFunction"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getAllDeviceCurrentLocationFunction/"
+    Value: !Sub "https://${myAPI}.execute-api.${AWS::Region}.amazonaws.com/Prod/getAllDeviceCurrentLocationFunction/"
   
   getAllDeviceCurrentLocationFunction:
     Description: "getAllDeviceCurrentLocationFunction ARN"
@@ -83,7 +110,7 @@ Outputs:
 
   getSingleDeviceLocationHistoryFunctionApi:
     Description: "API Gateway endpoint URL for Prod stage for getSingleDeviceLocationHistoryFunction"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getSingleDeviceLocationHistoryFunction/"
+    Value: !Sub "https://${myAPI}.execute-api.${AWS::Region}.amazonaws.com/Prod/getSingleDeviceLocationHistoryFunction/"
   
   getSingleDeviceLocationHistoryFunction:
     Description: "getSingleDeviceLocationHistoryFunction ARN"
